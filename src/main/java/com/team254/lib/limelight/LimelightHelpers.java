@@ -13,6 +13,7 @@ import edu.wpi.first.math.util.Units;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation2d;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -27,6 +28,12 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LimelightHelpers {
+
+    public void example(File dir, File parent) throws IOException {
+        if (!dir.getCanonicalPath().startsWith(parent.getCanonicalPath())) {
+            throw new IOException("Path traversal attempt: " + dir.getCanonicalPath());
+        }
+    }
 
     public static class LimelightTarget_Retro {
 
