@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LimelightHelpers {
 
-    public void example(File dir, File parent) throws IOException {
+    public static void example(File dir, File parent) throws IOException {
         if (!dir.getCanonicalPath().startsWith(parent.getCanonicalPath())) {
             throw new IOException("Path traversal attempt: " + dir.getCanonicalPath());
         }
